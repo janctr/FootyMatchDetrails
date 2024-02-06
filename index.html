@@ -1,19 +1,25 @@
 <div qv-extension style="height: 100%; position: relative; overflow: auto;">
-    <table>
-        <thead>
-            <tr>
-                <th ng-repeat="head in table.headers track by $index" qva-activate="head.orderBy()">
-                    {{head.qFallbackTitle}}</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="row in table.rows track by $index">
-                <td ng-repeat="cell in row.cells track by $index" class="selectable"
-                    ng-class="{'selected':cell.selected,'numeric':cell.qNum}" qva-activate="cell.select($event)">
-                    {{cell.qText}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <button ng-if="table.rowCount>table.rows.length" qva-activate="table.getMoreData()"
-        class="lui-button more">More...</button>
+    <h3>Home</h3>
+    <ul>
+        <li ng-repeat="player in home">{{ player.playerName }}</li>
+    </ul>
+
+    <div class="lineups">
+        <svg class="lineup-home" style="width: 50%" viewBox="0 0 {{ homeXMax + 10 }} {{ homeYMax + 10 }}"
+            xmlns="http://www.w3.org/2000/svg">
+            <circle ng-repeat="player in home" cx="{{ player.x * 10 }}" cy="{{ player.y * 10 }}" r="2" fill="black" />
+        </svg>
+
+        <svg class="lineup-away" style="width: 50%" viewBox="0 0 {{ awayXMax + 10 }} {{ awayYMax + 10 }}"
+            xmlns="http://www.w3.org/2000/svg">
+            <circle ng-repeat="player in away" cx="{{ player.x * 10 }}" cy="{{ player.y * 10 }}" r="2" fill="black" />
+        </svg>
+    </div>
+
+
+
+    <h3>Away</h3>
+    <ul>
+        <li ng-repeat="player in away">{{ player.playerName }}</li>
+    </ul>
 </div>

@@ -1,0 +1,10 @@
+.lineups {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lineup-home,
+.lineup-away {
+    border: 1px solid black;
+}
